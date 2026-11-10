@@ -91,8 +91,7 @@ app.get('/api/followers/details', async (req, res) => {
         const [rows] = await pool.query(`
             SELECT 
                 u1.nickname AS follower_nickname, 
-                u2.nickname AS followed_nickname,
-                f.created_at
+                u2.nickname AS followed_nickname
             FROM followers f
             JOIN users u1 ON f.follower_id = u1.id
             JOIN users u2 ON f.followed_id = u2.id
